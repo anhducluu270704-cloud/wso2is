@@ -1,0 +1,119 @@
+import * as React from 'react'
+
+import { cn } from '@/share/lib/utils'
+
+function Card({
+  className,
+  size = 'default',
+  ...props
+}: Readonly<
+  React.ComponentProps<'div'> & { size?: 'default' | 'sm' | 'lg' | 'xl' }
+>) {
+  return (
+    <div
+      data-slot="card"
+      data-size={size}
+      className={cn(
+        'bg-card text-card-foreground overflow-hidden gap-6 rounded-2xl py-6 px-4 text-sm shadow-xs has-[>img:first-child]:pt-0 data-[size=sm]:gap-4 data-[size=sm]:py-5 data-[size=sm]:px-4 data-[size=lg]:py-8 data-[size=lg]:px-10 data-[size=xl]:py-9 data-[size=xl]:px-10 data-[size=xl]:px-8*:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl group/card flex flex-col',
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardHeader({
+  className,
+  ...props
+}: Readonly<React.ComponentProps<'div'>>) {
+  return (
+    <div
+      data-slot="card-header"
+      className={cn(
+        'gap-1 rounded-t-xl [.border-b]:pb-6 group-data-[size=sm]/card:[.border-b]:pb-4 group/card-header @container/card-header grid auto-rows-min items-start has-data-[slot=card-action]:grid-cols-[1fr_auto] has-data-[slot=card-description]:grid-rows-[auto_auto]',
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardTitle({
+  className,
+  ...props
+}: Readonly<React.ComponentProps<'div'>>) {
+  return (
+    <div
+      data-slot="card-title"
+      className={cn(
+        'text-base leading-normal font-medium group-data-[size=sm]/card:text-sm',
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardDescription({
+  className,
+  ...props
+}: Readonly<React.ComponentProps<'div'>>) {
+  return (
+    <div
+      data-slot="card-description"
+      className={cn('text-muted-foreground text-sm', className)}
+      {...props}
+    />
+  )
+}
+
+function CardAction({
+  className,
+  ...props
+}: Readonly<React.ComponentProps<'div'>>) {
+  return (
+    <div
+      data-slot="card-action"
+      className={cn(
+        'col-start-2 row-span-2 row-start-1 self-start justify-self-end',
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+function CardContent({
+  className,
+  ...props
+}: Readonly<React.ComponentProps<'div'>>) {
+  return (
+    <div data-slot="card-content" className={cn('', className)} {...props} />
+  )
+}
+
+function CardFooter({
+  className,
+  ...props
+}: Readonly<React.ComponentProps<'div'>>) {
+  return (
+    <div
+      data-slot="card-footer"
+      className={cn(
+        'rounded-b-xl [.border-t]:pt-6 group-data-[size=sm]/card:[.border-t]:pt-4 flex items-center',
+        className
+      )}
+      {...props}
+    />
+  )
+}
+
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardAction,
+  CardDescription,
+  CardContent,
+}
