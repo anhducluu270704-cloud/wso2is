@@ -1,5 +1,0 @@
-export * from './auth'
-export * from './application'
-export * from './profile'
-export * from './support'
-export * from './api-product'
