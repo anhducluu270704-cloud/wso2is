@@ -266,7 +266,7 @@ function App() {
 
                 <div className="upload-actions">
                   <button type="submit" className="btn" disabled={loading || !leaveFile || !attendanceFile}>
-                    {loading ? 'Đang xử lý...' : 'Kiểm Tra'}
+                    {loading ? 'Processing...' : 'Test'}
                   </button>
                   <button
                     type="button"
